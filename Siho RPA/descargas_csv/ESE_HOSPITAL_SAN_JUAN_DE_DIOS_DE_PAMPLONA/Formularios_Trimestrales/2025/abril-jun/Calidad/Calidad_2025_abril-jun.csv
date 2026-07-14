@@ -1,0 +1,30 @@
+nombre,concepto,vigencia_actual,grupo
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.2.6. Número total de pacientes hospitalizados que sufren caídas en el periodo.,1.00,SEGURIDAD
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.2.6 Sumatoria de días de estancia de los pacientes en los servicios de hospitalización en el periodo.,4126.00,SEGURIDAD
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.2.13 Número de pacientes que reingresan al servicio de urgencias en la misma institución antes de 72 horas con el mismo diagnóstico de egreso.,26.00,SEGURIDAD
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.2.13 Número total de egresos vivos atendidos en el servicio de urgencias durante el periodo definido.,14047.00,SEGURIDAD
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,"P.2.14 Número total de pacientes que reingresan al servicio de hospitalización, en la misma institución, antes de 15 días, por el mismo diagnostico de egreso en el período.",0.00,SEGURIDAD
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.2.14 Número total de egresos vivos en el periodo.,1730.00,SEGURIDAD
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.2.15 Número total de cirugías programadas que fueron canceladas por causas atribuibles a la institución.,0.00,SEGURIDAD
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.2.15 Número total de cirugías programadas.,399.00,SEGURIDAD
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.1 Sumatoria de la diferencia de días calendario entre la fecha en la que se asignó la cita de Medicina general de primera vez y la fecha en la cual el usuario la solicitó.,34492.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.1 Número total de citas de Medicina General de primera vez asignadas.,14055.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.2 Sumatoria de la diferencia de días calendario entre la fecha en la que se asignó la cita de Odontología general de primera vez y la fecha en la cual el usuario la solicitó.,21366.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.2 Número total de citas de Odontología General de primera vez asignadas.,7138.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.3 Sumatoria de la diferencia de días calendario entre la fecha en la que se asignó la cita de Medicina Interna de primera vez y la fecha en la cual el usuario la solicitó.,4368.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.3 Número total de citas de Medicina interna de primera vez asignadas.,1386.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.4 Sumatoria de la diferencia de días calendario entre la fecha en la que se asignó la cita de Pediatría de primera vez y la fecha en la cual el usuario la solicitó.,3726.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.4 Número total de citas de Pediatría de primera vez asignadas.,901.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.5 Sumatoria de la diferencia de días calendario entre la fecha en la que se asignó la cita de Ginecología de primera vez y la fecha en la cual el usuario la solicitó.,4117.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.5 Número total de citas de Ginecología de primera vez asignadas.,873.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.6 Sumatoria de la diferencia de días calendario entre la fecha en la que se asignó la cita de Obstetricia de primera vez y la fecha en la cual el usuario la solicitó.,837.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.6 Número total de citas de Obstetricia de primera vez asignadas.,195.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.7 Sumatoria de la diferencia de días calendario entre la fecha en la que se asignó la cita de Cirugía General de primera vez y la fecha en la cual el usuario la solicitó.,2480.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,No. de pacientes remitidos a niveles superiores desde servicio ambulatorio y hospitalario,272.00,OTROS
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,No. de pacientes remitidos desde el servicio de urgencias a niveles superiores,731.00,OTROS
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.7 Número total de citas de Cirugía General de primera vez asignadas.,463.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,No. de pacientes remitidos para la atención del parto a niveles superiores,11.00,OTROS
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.10 Sumatoria del número de minutos transcurridos a partir de que el paciente es clasificado como Triage 2 y el momento en el cual es atendido en consulta de Urgencias por médico.,39360.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,"P.3.10 Número total de pacientes clasificados como Triage 2, en un periodo determinado.",2451.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.14 Número de usuarios que respondieron ?muy buena? o ?buena? a la pregunta: ¿cómo calificaría su experiencia global respecto a los servicios de salud que ha recibido a través de su IPS?.,4460.00,EXPERIENCIA ATENCION
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,P.3.14 Número de usuarios que respondieron la pregunta.,4803.00,EXPERIENCIA ATENCION

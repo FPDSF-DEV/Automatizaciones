@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIHO · Descarga de datos</title>
+<style>
+  :root{
+    --bg:#f2f5f9; --card:#ffffff; --border:#dde4ec;
+    --text:#1c2733; --muted:#5b6b7c;
+    --blue:#0f5ea8; --blue-dark:#0b4a85;
+    --green:#1a7f4b; --orange:#b25e09; --red:#b3261e;
+    --console-bg:#101820; --console-text:#d7e0e8;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font:15px/1.5 "Segoe UI", system-ui, sans-serif;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:24px 20px 60px}
+  header{display:flex; align-items:center; gap:14px; margin-bottom:22px}
+  .logo{
+    width:46px; height:46px; border-radius:12px; background:var(--blue);
+    color:#fff; display:flex; align-items:center; justify-content:center;
+    font-size:22px; font-weight:700;
+  }
+  h1{font-size:21px; margin:0}
+  header p{margin:2px 0 0; color:var(--muted); font-size:13px}
+  .grid{display:grid; grid-template-columns:380px 1fr; gap:18px}
+  @media (max-width:860px){ .grid{grid-template-columns:1fr} }
+  .card{
+    background:var(--card); border:1px solid var(--border);
+    border-radius:12px; padding:18px 20px; margin-bottom:18px;
+  }
+  .card h2{font-size:15px; margin:0 0 14px; display:flex; align-items:center; gap:8px}
+  label.fld{display:block; font-size:13px; color:var(--muted); margin:12px 0 4px}
+  input[type=text], input[type=password]{
+    width:100%; padding:9px 11px; border:1px solid var(--border);
+    border-radius:8px; font-size:15px; background:#fbfcfe; color:var(--text);
+  }
+  input:focus{outline:2px solid var(--blue); outline-offset:-1px}
+  .pwd-row{position:relative}
+  .pwd-row button{
+    position:absolute; right:6px; top:50%; transform:translateY(-50%);
+    border:0; background:none; cursor:pointer; color:var(--muted); font-size:13px;
+  }
+  .checks{display:flex; flex-direction:column; gap:7px; margin-top:4px}
+  .checks label, .years label{
+    display:flex; align-items:center; gap:8px; font-size:14px; cursor:pointer;
+  }
+  .years{display:flex; flex-wrap:wrap; gap:6px 14px; margin-top:4px}
+  .switch{display:flex; align-items:center; gap:8px; margin-top:14px; font-size:14px; cursor:pointer}
+  .note{
+    margin-top:14px; padding:10px 12px; border-radius:8px; font-size:13px;
+    background:#fff7e8; border:1px solid #f0dcb2; color:#7a5410;
+  }
+  .btns{display:flex; gap:10px; margin-top:16px}
+  button.primary, button.danger, button.ghost{
+    padding:10px 18px; border-radius:8px; border:0; font-size:15px;
+    font-weight:600; cursor:pointer;
+  }
+  button.primary{background:var(--blue); color:#fff; flex:1}
+  button.primary:hover{background:var(--blue-dark)}
+  button.primary:disabled{background:#9db6cc; cursor:not-allowed}
+  button.danger{background:var(--red); color:#fff; display:none}
+  button.ghost{
+    background:none; border:1px solid var(--border); color:var(--text);
+    font-weight:500; font-size:13px; padding:7px 12px;
+  }
+  .error{color:var(--red); font-size:13px; margin-top:10px; min-height:18px}
+  .status-row{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+  .badge{
+    padding:3px 12px; border-radius:99px; font-size:13px; font-weight:600;
+  }
+  .badge.idle{background:#e7edf3; color:var(--muted)}
+  .badge.run{background:#e1efff; color:var(--blue)}
+  .badge.ok{background:#e2f4e9; color:var(--green)}
+  .badge.err{background:#fbe4e2; color:var(--red)}
+  .counters{display:flex; gap:14px; margin-left:auto; font-size:13px; color:var(--muted)}
+  .counters b{font-weight:700}
+  .c-ok b{color:var(--green)} .c-skip b{color:var(--muted)} .c-warn b{color:var(--orange)}
+  #console{
+    margin-top:12px; background:var(--console-bg); color:var(--console-text);
+    border-radius:8px; padding:12px 14px; height:420px; overflow:auto;
+    font:12.5px/1.55 Consolas, "Cascadia Mono", monospace; white-space:pre-wrap;
+  }
+  #console .ok{color:#6fd598} #console .warn{color:#f2b96b}
+  #console .skip{color:#8fa1b0} #console .hdr{color:#7cc0ff; font-weight:700}
+  #console .meta{color:#b9c6d2; font-style:italic} #console .bad{color:#ff9089}
+  .btn-link{
+    text-decoration:none; display:inline-block; padding:7px 12px;
+    border:1px solid var(--border); border-radius:8px; color:var(--text);
+    font-size:13px; background:none; cursor:pointer;
+  }
+  .crumbs{font-size:13px; margin-bottom:8px; color:var(--muted)}
+  .crumbs a{color:var(--blue); text-decoration:none; cursor:pointer}
+  .crumbs a:hover{text-decoration:underline}
+  .crumbs .sep{margin:0 5px; color:var(--border)}
+  #browser a.nav{color:var(--text); text-decoration:none; font-weight:600; cursor:pointer}
+  #browser a.nav:hover{color:var(--blue)}
+  #browser a.dl{color:var(--blue); text-decoration:none}
+  #browser a.dl:hover{text-decoration:underline}
+  #browser a.mini{
+    font-size:12px; color:var(--muted); text-decoration:none;
+    border:1px solid var(--border); border-radius:6px; padding:2px 8px;
+  }
+  #browser a.mini:hover{color:var(--blue); border-color:var(--blue)}
+  .hint{font-size:12px; color:var(--muted); font-weight:400; margin-left:6px}
+  table{width:100%; border-collapse:collapse; font-size:13.5px; margin-top:6px}
+  th,td{text-align:left; padding:6px 8px; border-bottom:1px solid var(--border)}
+  th{color:var(--muted); font-weight:600; font-size:12.5px}
+  td.num, th.num{text-align:right}
+  .files-actions{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap}
+  .spin{
+    display:inline-block; width:13px; height:13px; border-radius:50%;
+    border:2px solid var(--blue); border-top-color:transparent;
+    animation:sp .8s linear infinite; vertical-align:-2px;
+  }
+  @keyframes sp{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">S</div>
+    <div>
+      <h1>SIHO · Descarga de datos de la entidad</h1>
+      <p>prestadores.minsalud.gov.co/siho — formularios anuales, semestrales, trimestrales y consultas</p>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div><!-- columna izquierda: formulario -->
+      <div class="card">
+        <h2>1 · Credenciales de la entidad</h2>
+        <label class="fld" for="usuario">Usuario (código de habilitación)</label>
+        <input id="usuario" type="text" autocomplete="username" placeholder="Ej: 5451800372">
+        <label class="fld" for="password">Contraseña</label>
+        <div class="pwd-row">
+          <input id="password" type="password" autocomplete="current-password" placeholder="Contraseña SIHO">
+          <button type="button" id="togglePwd">mostrar</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2 · Qué descargar</h2>
+        <div class="checks">
+          <label><input type="checkbox" class="sec" value="anual" checked> Formularios anuales</label>
+          <label><input type="checkbox" class="sec" value="semestral" checked> Formularios semestrales (Calidad)</label>
+          <label><input type="checkbox" class="sec" value="trimestral" checked> Formularios trimestrales</label>
+          <label><input type="checkbox" class="sec" value="consulta" checked> Consulta: Contratación externa desde 2020</label>
+        </div>
+        <label class="fld">Años</label>
+        <div class="years">
+          {% for y in years %}
+          <label><input type="checkbox" class="yr" value="{{ y }}" checked> {{ y }}</label>
+          {% endfor %}
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="overwrite">
+          Volver a descargar aunque el archivo ya exista
+        </label>
+        <label class="switch">
+          <input type="checkbox" id="autoConvert" checked>
+          Al terminar, convertir a CSV y organizar en Excel
+        </label>
+        <div class="note">
+          ⚠️ Al iniciar se abrirá una ventana del navegador Chromium.
+          <b>No la cierres</b>: el portal SIHO bloquea la descarga en modo oculto.
+        </div>
+        <div class="btns">
+          <button class="primary" id="btnStart">▶ Iniciar descarga</button>
+          <button class="danger" id="btnStop">■ Detener</button>
+        </div>
+        <div class="error" id="errBox"></div>
+      </div>
+    </div>
+
+    <div><!-- columna derecha: progreso y archivos -->
+      <div class="card">
+        <h2>3 · Progreso</h2>
+        <div class="status-row">
+          <span class="badge idle" id="badge">Sin iniciar</span>
+          <span id="elapsed" style="font-size:13px;color:var(--muted)"></span>
+          <div class="counters">
+            <span class="c-ok">✔ <b id="cOk">0</b> descargados</span>
+            <span class="c-skip">↷ <b id="cSkip">0</b> omitidos</span>
+            <span class="c-warn">⚠ <b id="cWarn">0</b> con error</span>
+          </div>
+        </div>
+        <div id="console">Esperando inicio…</div>
+      </div>
+
+      <div class="card">
+        <h2>4 · Archivos por entidad</h2>
+        <div class="crumbs" id="crumbs"></div>
+        <div id="browser" style="font-size:13.5px;color:var(--muted)">Cargando…</div>
+        <div class="files-actions">
+          <button class="ghost" id="btnConvert">⚙ Convertir y organizar ahora</button>
+          <button class="ghost" id="btnOpen">📂 Abrir en Windows</button>
+          <a class="ghost btn-link" id="zipCur" href="#" style="display:none">⬇ ZIP de esta carpeta</a>
+          <button class="ghost" id="btnRefresh">⟳ Actualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+let offset = 0, polling = null, startedAt = null;
+
+function setError(msg){ $('errBox').textContent = msg || ''; }
+
+$('togglePwd').onclick = () => {
+  const p = $('password');
+  p.type = p.type === 'password' ? 'text' : 'password';
+  $('togglePwd').textContent = p.type === 'password' ? 'mostrar' : 'ocultar';
+};
+
+function classify(line){
+  if (line.includes('[ERROR]')) return 'bad';
+  if (line.includes('[OK]'))   return 'ok';
+  if (line.includes('[WARN]')) return 'warn';
+  if (line.includes('[SKIP]')) return 'skip';
+  if (line.startsWith('===') || line.includes('=== ')) return 'hdr';
+  if (line.startsWith('---')) return 'meta';
+  return '';
+}
+
+function appendLines(lines){
+  if (!lines.length) return;
+  const con = $('console');
+  if (con.dataset.empty !== '0'){ con.textContent = ''; con.dataset.empty = '0'; }
+  const stick = con.scrollTop + con.clientHeight >= con.scrollHeight - 30;
+  for (const l of lines){
+    const div = document.createElement('div');
+    const c = classify(l);
+    if (c) div.className = c;
+    div.textContent = l;
+    con.appendChild(div);
+  }
+  if (stick) con.scrollTop = con.scrollHeight;
+  // contadores
+  const all = con.textContent;
+  $('cOk').textContent   = (all.match(/\[OK\]/g)   || []).length;
+  $('cSkip').textContent = (all.match(/\[SKIP\]/g) || []).length;
+  $('cWarn').textContent = (all.match(/\[WARN\]/g) || []).length;
+}
+
+function setBadge(state, text){
+  const b = $('badge');
+  b.className = 'badge ' + state;
+  b.innerHTML = text;
+}
+
+function fmtElapsed(sec){
+  sec = Math.floor(sec);
+  const m = Math.floor(sec/60), s = sec % 60;
+  return m ? `${m} min ${s} s` : `${s} s`;
+}
+
+async function poll(){
+  try{
+    const r = await fetch('/api/status?offset=' + offset);
+    const j = await r.json();
+    appendLines(j.lines);
+    offset = j.total;
+    if (j.started) startedAt = j.started;
+    if (j.running){
+      const phase = j.phase || 'Procesando';
+      setBadge('run', '<span class="spin"></span> ' + phase + '…');
+      $('btnStart').disabled = true;
+      $('btnConvert').disabled = true;
+      $('btnStop').style.display = 'inline-block';
+      $('elapsed').textContent = startedAt ? 'Transcurrido: ' + fmtElapsed(Date.now()/1000 - startedAt) : '';
+    } else {
+      $('btnStart').disabled = false;
+      $('btnConvert').disabled = false;
+      $('btnStop').style.display = 'none';
+      if (j.returncode !== null){
+        const warns = parseInt($('cWarn').textContent, 10);
+        if (j.returncode === 0 && warns === 0) setBadge('ok', '✔ Completado');
+        else if (j.returncode === 0)           setBadge('ok', '✔ Completado (con avisos)');
+        else                                   setBadge('err', '✖ Terminó con errores');
+        if (j.finished && startedAt) $('elapsed').textContent = 'Duración: ' + fmtElapsed(j.finished - startedAt);
+        clearInterval(polling); polling = null;
+        browse(curPath);
+      }
+    }
+  }catch(e){ /* servidor ocupado; reintenta en el proximo tick */ }
+}
+
+function startPolling(){
+  if (!polling) polling = setInterval(poll, 1000);
+  poll();
+}
+
+$('btnStart').onclick = async () => {
+  setError('');
+  const body = {
+    usuario:  $('usuario').value.trim(),
+    password: $('password').value,
+    secciones: [...document.querySelectorAll('.sec:checked')].map(c => c.value),
+    years:     [...document.querySelectorAll('.yr:checked')].map(c => +c.value),
+    overwrite: $('overwrite').checked,
+    convertir: $('autoConvert').checked,
+  };
+  if (!body.usuario || !body.password) return setError('Ingresa el usuario y la contraseña de la entidad.');
+  if (!body.secciones.length)          return setError('Selecciona al menos una sección.');
+  if (!body.years.length)              return setError('Selecciona al menos un año.');
+  $('btnStart').disabled = true;
+  const r = await fetch('/api/start', {
+    method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)
+  });
+  if (!r.ok){
+    const j = await r.json().catch(() => ({}));
+    setError(j.error || 'No se pudo iniciar la descarga.');
+    $('btnStart').disabled = false;
+    return;
+  }
+  $('console').textContent = ''; $('console').dataset.empty = '0';
+  offset = 0;
+  startPolling();
+};
+
+$('btnStop').onclick = async () => {
+  if (!confirm('¿Detener la descarga en curso?')) return;
+  await fetch('/api/stop', {method:'POST'});
+};
+
+$('btnConvert').onclick = async () => {
+  setError('');
+  $('btnConvert').disabled = true;
+  const r = await fetch('/api/convert', {method:'POST'});
+  if (!r.ok){
+    const j = await r.json().catch(() => ({}));
+    setError(j.error || 'No se pudo iniciar la conversión.');
+    $('btnConvert').disabled = false;
+    return;
+  }
+  $('console').textContent = ''; $('console').dataset.empty = '0';
+  offset = 0;
+  startPolling();
+};
+
+$('btnOpen').onclick = () => fetch('/api/open-folder', {
+  method:'POST', headers:{'Content-Type':'application/json'},
+  body: JSON.stringify({path: curPath || 'descargas'})
+});
+$('btnRefresh').onclick = () => browse(curPath);
+
+function fmtBytes(b){
+  if (b > 1048576) return (b/1048576).toFixed(1) + ' MB';
+  if (b > 1024)    return (b/1024).toFixed(0) + ' KB';
+  return b + ' B';
+}
+
+function fmtWhen(ts){
+  const d = new Date(ts * 1000);
+  return d.toLocaleDateString('es-CO') + ' ' +
+         d.toLocaleTimeString('es-CO', {hour:'2-digit', minute:'2-digit'});
+}
+
+let curPath = '';
+const disp = n => n.replaceAll('_', ' ');
+const fileIcon = n => /\.(xlsx?|csv)$/i.test(n) ? (n.toLowerCase().endsWith('.csv') ? '📄' : '📊') : '📎';
+
+function renderCrumbs(path){
+  let html = `<a data-rel="">Inicio</a>`;
+  let acc = [];
+  for (const seg of path ? path.split('/') : []){
+    acc.push(seg);
+    html += `<span class="sep">›</span><a data-rel="${acc.join('/')}">${disp(seg)}</a>`;
+  }
+  $('crumbs').innerHTML = html;
+  $('crumbs').querySelectorAll('a').forEach(a => a.onclick = () => browse(a.dataset.rel));
+}
+
+async function browse(path){
+  const r = await fetch('/api/browse?path=' + encodeURIComponent(path || ''));
+  if (!r.ok){
+    if (path) return browse('');           // carpeta borrada: volver al inicio
+    $('browser').innerHTML = 'Aún no hay archivos descargados.';
+    return;
+  }
+  const j = await r.json();
+  curPath = j.path;
+  renderCrumbs(j.path);
+
+  if (!j.dirs.length && !j.files.length){
+    $('browser').innerHTML = j.path ? 'Carpeta vacía.' : 'Aún no hay archivos descargados.';
+  } else {
+    let html = '<table>';
+    for (const d of j.dirs){
+      html += `<tr><td>📁 <a class="nav" data-rel="${d.rel}">${disp(d.name)}</a>` +
+              (d.label ? `<span class="hint">${d.label}</span>` : '') + `</td>` +
+              `<td class="num">${d.items} arch.</td><td class="num">${fmtBytes(d.bytes)}</td>` +
+              `<td style="text-align:right"><a class="mini" href="/api/zip?path=${encodeURIComponent(d.rel)}">⬇ ZIP</a></td></tr>`;
+    }
+    for (const f of j.files){
+      html += `<tr><td>${fileIcon(f.name)} <a class="dl" href="/api/download?path=${encodeURIComponent(f.rel)}" title="Descargar">${f.name}</a></td>` +
+              `<td class="num"></td><td class="num">${fmtBytes(f.bytes)}</td>` +
+              `<td style="text-align:right">${fmtWhen(f.mtime)}</td></tr>`;
+    }
+    html += '</table>';
+    $('browser').innerHTML = html;
+    $('browser').querySelectorAll('a.nav').forEach(a => a.onclick = () => browse(a.dataset.rel));
+  }
+
+  $('zipCur').style.display = j.path ? 'inline-block' : 'none';
+  if (j.path) $('zipCur').href = '/api/zip?path=' + encodeURIComponent(j.path);
+}
+
+// Al cargar: reconectar con un trabajo en curso (si lo hay) y listar archivos.
+browse('');
+fetch('/api/status?offset=0').then(r => r.json()).then(j => {
+  if (j.running || j.total > 0){ startPolling(); }
+});
+</script>
+</body>
+</html>

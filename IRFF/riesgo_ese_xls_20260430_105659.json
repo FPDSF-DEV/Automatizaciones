@@ -1,0 +1,34 @@
+{
+  "fecha_calculo": "2026-04-30T10:56:59.747536",
+  "datos_ese": {
+    "nombre_ese": "ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA",
+    "municipio": "PAMPLONA",
+    "departamento": "Norte de Santander",
+    "nivel_atencion": 2,
+    "ingresos_venta_servicios": 2812770344600.0,
+    "otros_ingresos_corrientes": 2125270771000.0,
+    "ingresos_reconocidos_total": 8602139870700.0,
+    "aportes_no_ligados": 0,
+    "mercado_especial": false,
+    "gastos_funcionamiento": 5445355786800.0,
+    "gastos_operacion": 735760434000.0,
+    "gastos_comprometidos_total": 7140030158900.0,
+    "cartera_menor_180": 1578953787800.0,
+    "cartera_180_360": 721276526500.0,
+    "cartera_mayor_360": 595377087300.0,
+    "pasivos_mayores_1_anio": 314416939000.0
+  },
+  "resultados": {
+    "ingresos_corrientes": 6201204145840.0,
+    "gastos_corrientes": 6181116220800.0,
+    "proyeccion_largo_plazo": 838645938525.0,
+    "pasivos": 314416939000.0,
+    "superavit_deficit_corriente": 20087925040.0,
+    "superavit_deficit_no_corriente": 524228999525.0,
+    "superavit_deficit_total": 544316924565.0,
+    "ingresos_operacionales_totales": 7039850084365.0,
+    "indice_riesgo": 0.07731939147026563,
+    "superavit_deficit_presupuestal": 1462109711800.0
+  },
+  "categoria_riesgo": "SIN RIESGO"
+}

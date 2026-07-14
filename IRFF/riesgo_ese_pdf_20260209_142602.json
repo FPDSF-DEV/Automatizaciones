@@ -1,0 +1,82 @@
+{
+  "fecha_calculo": "2026-02-09T14:26:02.470158",
+  "archivo_fuente": "Ficha Técnica.pdf",
+  "ese": "HOSPITAL LOCAL CARTAGENA DE INDIAS DE",
+  "nivel_atencion": 1,
+  "anios_analizados": [
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "resultados_por_anio": [
+    {
+      "anio": 2021,
+      "indice": 0.2502478045265767,
+      "categoria": "SIN RIESGO",
+      "resultados": {
+        "ingresos_corrientes": 107993601603.16,
+        "gastos_corrientes": 69623051234.0,
+        "proyeccion_largo_plazo": 14176162638.96,
+        "pasivos": 21973997727.0,
+        "superavit_deficit_corriente": 38370550369.16,
+        "superavit_deficit_no_corriente": -7797835088.040001,
+        "superavit_deficit_total": 30572715281.120003,
+        "ingresos_operacionales_totales": 122169764242.12,
+        "indice_riesgo": 0.2502478045265767,
+        "superavit_deficit_presupuestal": 36755503877.0
+      }
+    },
+    {
+      "anio": 2022,
+      "indice": 0.2678516526856637,
+      "categoria": "SIN RIESGO",
+      "resultados": {
+        "ingresos_corrientes": 138622702220.2,
+        "gastos_corrientes": 83808419554.0,
+        "proyeccion_largo_plazo": 14482589722.6,
+        "pasivos": 28287366907.0,
+        "superavit_deficit_corriente": 54814282666.20001,
+        "superavit_deficit_no_corriente": -13804777184.4,
+        "superavit_deficit_total": 41009505481.80001,
+        "ingresos_operacionales_totales": 153105291942.80002,
+        "indice_riesgo": 0.2678516526856637,
+        "superavit_deficit_presupuestal": 51898274087.0
+      }
+    },
+    {
+      "anio": 2023,
+      "indice": 0.2607343284508566,
+      "categoria": "SIN RIESGO",
+      "resultados": {
+        "ingresos_corrientes": 176637770608.48,
+        "gastos_corrientes": 107171642821.0,
+        "proyeccion_largo_plazo": 16978163154.630001,
+        "pasivos": 35961970475.0,
+        "superavit_deficit_corriente": 69466127787.48001,
+        "superavit_deficit_no_corriente": -18983807320.37,
+        "superavit_deficit_total": 50482320467.110016,
+        "ingresos_operacionales_totales": 193615933763.11002,
+        "indice_riesgo": 0.2607343284508566,
+        "superavit_deficit_presupuestal": 64560554521.0
+      }
+    },
+    {
+      "anio": 2024,
+      "indice": 0.15030977779608015,
+      "categoria": "SIN RIESGO",
+      "resultados": {
+        "ingresos_corrientes": 202043868445.28,
+        "gastos_corrientes": 130386397113.0,
+        "proyeccion_largo_plazo": 17592217668.48,
+        "pasivos": 56236237701.0,
+        "superavit_deficit_corriente": 71657471332.28,
+        "superavit_deficit_no_corriente": -38644020032.520004,
+        "superavit_deficit_total": 33013451299.759995,
+        "ingresos_operacionales_totales": 219636086113.76,
+        "indice_riesgo": 0.15030977779608015,
+        "superavit_deficit_presupuestal": 70251319299.0
+      }
+    }
+  ]
+}

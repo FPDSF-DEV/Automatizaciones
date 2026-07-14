@@ -1,0 +1,47 @@
+nombre,concepto,pobre_no_asegurada,no_poss,subsidiado,contributivo,poblacion_extranjera,otros,total
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Dosis de biológico aplicadas,0.00,0.00,6352.00,1109.00,531.00,397.00,8389.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Controles de enfermería (Atención prenatal / crecimiento y desarrollo),0.00,0.00,1018.00,237.00,1.00,2.00,1258.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Otros controles de enfermería de PyP (Diferentes a atención prenatal - Crecimiento y desarrollo),0.00,0.00,1295.00,206.00,0.00,4.00,1505.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Citologías cervicovaginales tomadas,0.00,0.00,696.00,184.00,0.00,3.00,883.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Consultas de medicina general electivas realizadas,0.00,0.00,19301.00,4049.00,16.00,62.00,23428.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Consultas de medicina general urgentes realizadas,0.00,0.00,7362.00,4473.00,212.00,1395.00,13442.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Consultas de medicina especializada electivas realizadas,0.00,0.00,4349.00,1257.00,54.00,319.00,5979.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Consultas de medicina especializada urgentes realizadas,0.00,0.00,116.00,38.00,3.00,14.00,171.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,"Otras consultas electivas realizadas por profesionales diferentes a médico, enfermero u odontólogo (Incluye Psicología, Nutricionista, Optometria y otras)",0.00,0.00,1883.00,198.00,45.00,54.00,2180.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Total de consultas de odontología realizadas (valoración),0.00,0.00,2499.00,620.00,4.00,3.00,3126.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Número de sesiones de odontología realizadas,0.00,0.00,11068.00,0.00,0.00,22.00,11090.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Total de tratamientos terminados (Paciente terminado),0.00,0.00,675.00,3.00,0.00,0.00,678.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Sellantes aplicados,0.00,0.00,1697.00,329.00,0.00,0.00,2026.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Superficies obturadas (cualquier material),0.00,0.00,4107.00,820.00,2.00,9.00,4938.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Exodoncias (cualquier tipo),0.00,0.00,578.00,123.00,0.00,2.00,703.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Partos vaginales,0.00,0.00,44.00,19.00,6.00,2.00,71.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Partos por cesárea,0.00,0.00,35.00,24.00,2.00,3.00,64.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Total de egresos,0.00,0.00,1026.00,397.00,22.00,105.00,1550.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,"...Egresos obstétricos (partos, cesáreas y otros egresos obstétricos)",0.00,0.00,104.00,54.00,8.00,5.00,171.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,"...Egresos quirúrgicos (Sin incluir partos, cesáreas y otros egresos obstétricos)",0.00,0.00,102.00,38.00,2.00,10.00,152.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,"...Egresos no quirúrgicos (No incluye salud mental, partos, cesáreas y otros egresos obstétricos)",0.00,0.00,820.00,305.00,12.00,90.00,1227.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,...Egresos salud mental,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Pacientes en Observación,0.00,0.00,464.00,286.00,5.00,41.00,796.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Pacientes en Cuidados Intermedios,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Pacientes Unidad Cuidados Intensivos,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Total de días estancia de los egresos,0.00,0.00,2630.00,1001.00,64.00,465.00,4160.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,"...Días estancia de los egresos obstétricos (Partos, cesáreas y otros obstétricos)",0.00,0.00,182.00,67.00,10.00,9.00,268.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,"...Días estancia de los egresos quirúrgicos (Sin Incluir partos, cesáreas y otros obstétricos)",0.00,0.00,250.00,78.00,4.00,41.00,373.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,"...Días estancia de los egresos No quirúrgicos (No incluye salud mental, partos, cesáreas y otros obstétricos)",0.00,0.00,2198.00,856.00,50.00,415.00,3519.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,...Días estancia de los egresos salud mental,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Días estancia Cuidados Intermedios.,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Días estancia Cuidados Intensivos,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Total de días cama ocupados,0.00,0.00,0.00,0.00,0.00,0.00,4291.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Total de días cama disponibles,0.00,0.00,0.00,0.00,0.00,0.00,4600.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Total de cirugías realizadas (Sin incluir partos y cesáreas),0.00,0.00,599.00,324.00,10.00,120.00,1053.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,...Cirugías grupos 2-6,0.00,0.00,484.00,256.00,8.00,107.00,855.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,...Cirugías grupos 7-10,0.00,0.00,111.00,65.00,2.00,13.00,191.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,...Cirugías grupos 11-13,0.00,0.00,4.00,3.00,0.00,0.00,7.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,...Cirugías grupos 20-23,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Exámenes de laboratorio,0.00,0.00,43648.00,19318.00,658.00,4055.00,67679.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Número de imágenes diagnósticas tomadas,0.00,0.00,3173.00,1445.00,70.00,1628.00,6316.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Número de sesiones de terapias respiratorias realizadas,0.00,0.00,1356.00,783.00,45.00,216.00,2400.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Número de sesiones de terapias físicas realizadas,0.00,0.00,2954.00,183.00,8.00,519.00,3664.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Número de sesiones de otras terapias (sin incluir respiratorias y físicas),0.00,0.00,2821.00,137.00,0.00,202.00,3160.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,"Número de visitas domiciliarias, comunitarias e institucionales -PIC-",0.00,0.00,0.00,0.00,0.00,0.00,13371.00
+ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Número de sesiones de talleres colectivos -PIC-,0.00,0.00,0.00,0.00,0.00,0.00,20055.00

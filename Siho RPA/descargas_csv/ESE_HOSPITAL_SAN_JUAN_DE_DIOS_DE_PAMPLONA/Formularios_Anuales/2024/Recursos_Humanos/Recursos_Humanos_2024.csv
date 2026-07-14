@@ -1,0 +1,39 @@
+secuencia,nombre,concepto,carg_codigo,cargNombre,cargNivel,cargTipo,ocup_codigo,ocupNombre,clca_codigo,clcaNombre,inscrito,horas_dia,numero_cargos_aprobados,numero_cargos,asignacion_mensual,anual_asignacion_basica,anual_asignacion_total,vacantes
+1054830,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,124,Auxiliar Administrativo,ASISTENCIAL,APOYO,142,Otro,1,Carrera,Nombramiento provisional,8.00,3,3,1929984.00,0.00,306812724.00,0
+1054831,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,125,Auxiliar Area Salud,ASISTENCIAL,OPERATIVO,171,Auxiliar Administrativo en Salud,1,Carrera,Inscrito en carrera,8.00,3,3,1929984.00,0.00,306812724.00,0
+1054832,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,125,Auxiliar Area Salud,ASISTENCIAL,OPERATIVO,171,Auxiliar Administrativo en Salud,1,Carrera,Nombramiento provisional,8.00,1,1,1929984.00,0.00,225765364.00,0
+1054833,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,125,Auxiliar Area Salud,ASISTENCIAL,OPERATIVO,171,Auxiliar Administrativo en Salud,1,Carrera,Nombramiento provisional,8.00,7,7,1980526.00,0.00,220416882.00,0
+1054834,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,125,Auxiliar Area Salud,ASISTENCIAL,OPERATIVO,148,Auxiliar en Enfermería,1,Carrera,Inscrito en carrera,8.00,7,7,2282903.00,0.00,308834042.00,0
+1054835,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,125,Auxiliar Area Salud,ASISTENCIAL,OPERATIVO,148,Auxiliar en Enfermería,1,Carrera,Inscrito en carrera,8.00,27,26,2282903.00,0.00,638044027.00,1
+1054836,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,125,Auxiliar Area Salud,ASISTENCIAL,OPERATIVO,151,Laboratorio Clínico,1,Carrera,Inscrito en carrera,8.00,1,1,1658888.00,0.00,301060928.00,0
+1054837,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,125,Auxiliar Area Salud,ASISTENCIAL,OPERATIVO,152,Otro,1,Carrera,Nombramiento provisional,8.00,1,1,1929984.00,0.00,301127300.00,0
+1054838,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,125,Auxiliar Area Salud,ASISTENCIAL,OPERATIVO,152,Otro,1,Carrera,Inscrito en carrera,8.00,1,1,1929984.00,0.00,301127300.00,0
+1054839,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,119,Enfermero,PROFESIONAL,OPERATIVO,121,Enfermería,1,Carrera,Nombramiento provisional,8.00,1,1,4305386.00,0.00,403667386.00,0
+1054840,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,119,Enfermero,PROFESIONAL,OPERATIVO,121,Enfermería,1,Carrera,Inscrito en carrera,8.00,8,8,4305386.00,0.00,418654177.00,0
+1054841,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,119,Enfermero,PROFESIONAL,OPERATIVO,121,Enfermería,1,Carrera,Inscrito en carrera,8.00,3,3,3647957.00,0.00,408568592.00,0
+1054842,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,104,Gerente Empresa Social del Estado,DIRECTIVO,APOYO,4,Gerente Empresa Social del Estado,2,Periodo Fijo,,8.00,1,1,8347633.00,0.00,209979665.00,0
+1054843,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,111,Médico Especialista,PROFESIONAL,OPERATIVO,26,Cirugía General,1,Carrera,Nombramiento provisional,8.00,1,1,7434014.00,0.00,239114320.00,0
+1054844,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,111,Médico Especialista,PROFESIONAL,OPERATIVO,38,Ginecología y Obstetricia,1,Carrera,Nombramiento provisional,8.00,1,1,7434014.00,0.00,239114320.00,0
+1054845,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,111,Médico Especialista,PROFESIONAL,OPERATIVO,46,Medicina Interna,1,Carrera,Nombramiento provisional,8.00,1,1,7434014.00,0.00,239114320.00,0
+1054846,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,111,Médico Especialista,PROFESIONAL,OPERATIVO,65,Pediatría,1,Carrera,Nombramiento provisional,8.00,1,1,7434014.00,0.00,239114320.00,0
+1054847,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,110,Médico General,PROFESIONAL,OPERATIVO,14,Medicina General,1,Carrera,Nombramiento provisional,8.00,1,1,6104904.00,0.00,206649532.00,0
+1054848,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,110,Médico General,PROFESIONAL,OPERATIVO,14,Medicina General,1,Carrera,Inscrito en carrera,8.00,5,5,6104904.00,0.00,605883637.00,0
+1054849,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,112,Odontólogo,PROFESIONAL,OPERATIVO,77,Odontología,1,Carrera,Inscrito en carrera,8.00,1,1,5087286.00,0.00,201176176.00,0
+1054850,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,116,Profesional Especializado,PROFESIONAL,APOYO,95,Profesional Especializado,2,Periodo Fijo,,8.00,1,1,5561371.00,0.00,201586703.00,0
+1054851,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,114,Profesional Servicio Social Obligatorio,PROFESIONAL,OPERATIVO,88,Bacteriología Servicio Social Obligatorio,3,Serv Social Oblig,,8.00,1,1,3372520.00,0.00,100217767.00,0
+1054867,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,114,Profesional Servicio Social Obligatorio,PROFESIONAL,OPERATIVO,89,Enfermería Servicio Social Obligatorio,3,Serv Social Oblig,,8.00,3,3,3372520.00,0.00,108765131.00,0
+1054852,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,114,Profesional Servicio Social Obligatorio,PROFESIONAL,OPERATIVO,90,Medicina General Servicio Obligatorio,3,Serv Social Oblig,,8.00,10,10,4215648.00,0.00,750310699.00,0
+1054853,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,114,Profesional Servicio Social Obligatorio,PROFESIONAL,OPERATIVO,91,Odontología Servicios Social Obligatorio,3,Serv Social Oblig,,8.00,8,8,3372520.00,0.00,600372652.00,0
+1054854,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,115,Profesional Universitario,PROFESIONAL,APOYO,92,Profesional Universitario,1,Carrera,Nombramiento provisional,8.00,1,1,3334331.00,0.00,106055085.00,0
+1054855,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,115,Profesional Universitario,PROFESIONAL,APOYO,92,Profesional Universitario,1,Carrera,Inscrito en carrera,8.00,1,1,3334331.00,0.00,106055085.00,0
+1054856,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,115,Profesional Universitario,PROFESIONAL,APOYO,92,Profesional Universitario,1,Carrera,Nombramiento provisional,8.00,1,1,3734986.00,0.00,105501759.00,0
+1054857,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,115,Profesional Universitario,PROFESIONAL,APOYO,92,Profesional Universitario,1,Carrera,Inscrito en carrera,8.00,2,2,3734986.00,0.00,106501759.00,0
+1054858,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,115,Profesional Universitario,PROFESIONAL,APOYO,92,Profesional Universitario,1,Carrera,Inscrito en carrera,8.00,1,0,3734986.00,0.00,105668999.00,1
+1054859,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,115,Profesional Universitario,PROFESIONAL,APOYO,92,Profesional Universitario,1,Carrera,Nombramiento provisional,8.00,3,2,2767883.00,0.00,107862644.00,1
+1054860,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,115,Profesional Universitario,PROFESIONAL,APOYO,92,Profesional Universitario,1,Carrera,Inscrito en carrera,8.00,1,1,2414834.00,0.00,102909890.00,0
+1054861,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,117,Profesional Universitario Area Salud,PROFESIONAL,OPERATIVO,97,Bacteriólogo y Laboratorista Clínico,1,Carrera,Inscrito en carrera,8.00,1,1,3913753.00,0.00,104707998.00,0
+1054862,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,127,Secretario,ASISTENCIAL,APOYO,156,Secretario,1,Carrera,Inscrito en carrera,8.00,1,0,1901417.00,0.00,104837096.00,1
+1054863,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,126,Secretario Ejecutivo,ASISTENCIAL,APOYO,155,Secretario Ejecutivo,1,Carrera,Inscrito en carrera,8.00,1,1,2672263.00,0.00,103214157.00,0
+1054864,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,102,Subdirector,DIRECTIVO,APOYO,2,Subdirector (Administrativo/Financiero),4,Libre Nombramiento,,8.00,1,1,7659721.00,0.00,101698857.00,0
+1054865,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,103,Subdirector Científico,DIRECTIVO,OPERATIVO,3,Subdirector (científico),4,Libre Nombramiento,,8.00,1,1,7659721.00,0.00,101698857.00,0
+1054866,ESE HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,Cargos,123,Técnico Administrativo,TECNICO,APOYO,141,Otro,1,Carrera,Nombramiento provisional,8.00,2,1,2205370.00,0.00,103557471.00,1
