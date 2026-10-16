@@ -1,9 +1,0 @@
-nan,Código Sede,Nombre sede,Area Lote,Area Primero,Tipo institución,Area Construida,Ubicación,Latitud,Longitud,Cercano serv. educación,Cercano serv. administración pública,Cercano serv. bienestar social,Cercano serv. cultura,Cercano serv. seguridad ciudadana,Cercano serv. abastecimiento alimentario,Cercano serv. funerario/cementerio,Cercano otros serv. sede funcionando,Cercano otros serv. sede no funcionando,Cercano otros serv. prestador privado,Cercano otros serv. sede funcionando menor 200 metros,Cercano otros serv. sede no funcionando menor 200 metros,Cercano otros serv. prestador privado menor 200 metros,Cercano otros serv. cuidado propio comunidad,Cercano droguería
-,541250037208,CENTRO DE SALUD DE CACOTA,378,223,CENTRO DE SALUD,223,En cabecera,7.26855138,-72.64173223,SI,SI,SI,SI,SI,SI,SI,NO,NO,NO,NO,NO,NO,SI,SI
-,541740037205,CENTRO DE SALUD DE CHITAGA,1.006,660,CENTRO DE SALUD,660,En cabecera,7.13914461,-72.665735,SI,SI,SI,SI,SI,SI,SI,NO,NO,NO,NO,NO,NO,SI,SI
-,544800037209,CENTRO DE SALUD DE MUTISCUA,326,285,CENTRO DE SALUD,285,En cabecera,7.299664,-72.747533,SI,SI,SI,SI,SI,SI,SI,NO,NO,NO,NO,NO,NO,SI,SI
-,545200037204,CENTRO DE SALUD DE PAMPLONITA,722,448,CENTRO DE SALUD,448,En cabecera,7.437544,-72.639142,SI,SI,SI,SI,SI,SI,SI,NO,NO,NO,NO,NO,NO,SI,SI
-,547430037207,CENTRO DE SALUD DE SILOS,598,330,CENTRO DE SALUD,330,En cabecera,7.20374685,-72.757252,SI,SI,SI,SI,SI,SI,SI,NO,NO,NO,NO,NO,NO,SI,SI
-,542230037206,CENTRO DE SALUD DIVINO NIÑO DE CUCUTILLA,808,494,CENTRO DE SALUD,494,En cabecera,7.26855138,-72.772403,SI,SI,SI,SI,SI,SI,SI,NO,NO,NO,NO,NO,NO,SI,SI
-,545180037201,HOSPITAL SAN JUAN DE DIOS DE PAMPLONA,20.000,8.266,HOSPITAL,8.830,En cabecera,7.374221075379933,-72.64415384803507,SI,SI,SI,SI,SI,SI,SI,NO,NO,NO,NO,NO,NO,SI,SI
-,,TOTAL,23.838,10.706,11.270,,,,,,,,,,,,,,,,,,,
