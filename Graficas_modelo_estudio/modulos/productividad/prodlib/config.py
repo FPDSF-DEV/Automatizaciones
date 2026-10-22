@@ -63,14 +63,3 @@ OPS = {
     # Solo se usa el reporte de este trimestre: trae todos los contratos del año.
     "trimestre_anual": "octubre-dic",
 }
-
-# --- Paleta ----------------------------------------------------------------
-# Paleta categórica validada para daltonismo. El orden es fijo: la serie 1
-# siempre es azul, la serie 2 siempre naranja. No se recicla ni se reordena.
-PALETA = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300"]
-TINTA = "#0b0b0b"
-TINTA_SUAVE = "#52514e"
-REJILLA = "#e5e4e0"
-SUPERFICIE = "#ffffff"
-
-DPI = 160

@@ -20,13 +20,15 @@ import re
 import sys
 from pathlib import Path
 
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-import matplotlib.ticker as mticker
 import pandas as pd
 
 from normalizar_nombres import normalizar
+
+# Las graficas usan el sistema de diseno de terridata (paleta, tipografia, maqueta),
+# el mismo de los modulos terridata y pss.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "terridata"))
+from terridata import graficas as g  # noqa: E402
+from terridata.estilo import CLARO, TAMANO_BASE, formato_es  # noqa: E402
 
 # --- Rutas del proyecto unificado -------------------------------------------
 RAIZ_PROYECTO = Path(__file__).resolve().parents[2]
@@ -41,12 +43,12 @@ def carpeta_por_defecto():
     halladas = sorted(siho.glob(f"**/Consultas_Detalladas/{CARPETA_REPORTE}"))
     return halladas[0] if len(halladas) == 1 else siho
 
-# --- Paleta categorica validada (modo claro) --------------------------------
-AZUL, NARANJA, AQUA, AMARILLO = "#2a78d6", "#eb6834", "#1baf7a", "#eda100"
-MAGENTA, VERDE, VIOLETA, ROJO = "#e87ba4", "#008300", "#4a3aa7", "#e34948"
-SERIES = [AZUL, NARANJA, AQUA, AMARILLO, MAGENTA, VERDE, VIOLETA, ROJO]
-SUPERFICIE = "#fcfcfb"
-TINTA, TINTA_2, TINTA_3 = "#0b0b0b", "#52514e", "#8a8a85"
+# --- Tema de las graficas (lo usa tambien la app de streamlit) --------------
+TEMA = CLARO
+AZUL = TEMA.color(1)
+SUPERFICIE = TEMA.superficie
+TINTA_2 = TEMA.texto_secundario
+PIE = "Fuente: SIHO — Reporte de contratación externa (consolidado de cada año)"
 
 COLUMNAS_ESPERADAS = {
     "nombres_apellidos", "numero_cedula", "valor_total_contrato",
@@ -290,199 +292,121 @@ def consolidar(por_anio):
 # --------------------------------------------------------------------------
 # 3. Graficas
 # --------------------------------------------------------------------------
-def _estilo(ax):
-    ax.set_facecolor(SUPERFICIE)
-    ax.figure.set_facecolor(SUPERFICIE)
-    for lado in ("top", "right"):
-        ax.spines[lado].set_visible(False)
-    for lado in ("left", "bottom"):
-        ax.spines[lado].set_color("#dcdbd5")
-    ax.tick_params(colors=TINTA_2, length=0)
-    ax.grid(axis="y", color="#e8e7e1", linewidth=0.8)
-    ax.set_axisbelow(True)
-
-
-def _millones(valor, _=None):
+def _millones(valor):
     if abs(valor) >= 1e9:
-        return f"${valor / 1e9:,.1f} mil M"
-    return f"${valor / 1e6:,.0f} M"
+        return f"$ {formato_es(valor / 1e9, 1)} mil M"
+    return f"$ {formato_es(valor / 1e6, 0)} M"
 
 
 def _guardar(fig, destino, nombre):
-    ruta = destino / nombre
-    fig.subplots_adjust(top=1 - 0.8 / fig.get_size_inches()[1])
-    fig.savefig(ruta, dpi=150, bbox_inches="tight", facecolor=SUPERFICIE)
-    plt.close(fig)
-    print(f"  grafica: {ruta.name}")
-
-
-def _titulo(fig, titulo, subtitulo=None, y=0.99):
-    """Titulo y subtitulo a nivel de figura, para que no choquen con el eje."""
-    fig.text(0.008, y, titulo, color=TINTA, fontsize=13.5,
-             fontweight="bold", va="top", ha="left")
-    if subtitulo:
-        fig.text(0.008, y - 0.052, subtitulo, color=TINTA_2, fontsize=9.5,
-                 va="top", ha="left")
+    g.guardar(fig, destino / nombre, formatos=("png",))
+    g.cerrar(fig)
+    print(f"  grafica: {nombre}.png")
 
 
 def graficar(datos, destino):
-    plt.rcParams.update({"font.family": "DejaVu Sans", "axes.labelcolor": TINTA_2})
-
     # --- Contratos por anio ---
     por_anio = datos.groupby("anio").agg(
         contratos=("consecutivo", "count"),
         valor=("valor_total", "sum"),
         personas=("id_persona", "nunique"),
     ).reset_index()
+    anios = [str(a) for a in por_anio["anio"]]
 
-    fig, ax = plt.subplots(figsize=(9, 4.8))
-    _estilo(ax)
-    barras = ax.bar(por_anio["anio"].astype(str), por_anio["contratos"],
-                    color=AZUL, width=0.62)
-    for b, v in zip(barras, por_anio["contratos"]):
-        ax.text(b.get_x() + b.get_width() / 2, v, f"{v:,}", ha="center", va="bottom",
-                color=TINTA, fontsize=10, fontweight="bold")
-    _titulo(fig, "Contratos OPS suscritos por año",
-            "Conteo de contratos en el reporte consolidado de cada año")
-    ax.set_ylim(0, por_anio["contratos"].max() * 1.15)
-    ax.set_yticks([])
-    ax.grid(False)
-    _guardar(fig, destino, "01_contratos_por_anio.png")
+    fig = g.columnas(anios, por_anio["contratos"].tolist(), TEMA,
+                     "Contratos OPS suscritos por año",
+                     "Conteo de contratos en el reporte consolidado de cada año", PIE,
+                     decimales=0)
+    _guardar(fig, destino, "01_contratos_por_anio")
 
     # --- Valor contratado por anio ---
-    fig, ax = plt.subplots(figsize=(9, 4.8))
-    _estilo(ax)
-    barras = ax.bar(por_anio["anio"].astype(str), por_anio["valor"],
-                    color=NARANJA, width=0.62)
-    for b, v in zip(barras, por_anio["valor"]):
-        ax.text(b.get_x() + b.get_width() / 2, v, _millones(v), ha="center",
-                va="bottom", color=TINTA, fontsize=10, fontweight="bold")
-    _titulo(fig, "Valor total contratado por año",
-            "Suma de valor_total_contrato, pesos corrientes")
-    ax.yaxis.set_major_formatter(mticker.FuncFormatter(_millones))
-    ax.set_ylim(0, por_anio["valor"].max() * 1.15)
-    _guardar(fig, destino, "02_valor_por_anio.png")
+    fig = g.columnas(anios, (por_anio["valor"] / 1e6).tolist(), TEMA,
+                     "Valor total contratado por año",
+                     "Millones de pesos corrientes · suma de valor_total_contrato", PIE,
+                     decimales=0)
+    _guardar(fig, destino, "02_valor_por_anio")
 
     # --- Personas distintas por anio ---
-    fig, ax = plt.subplots(figsize=(9, 4.8))
-    _estilo(ax)
-    ax.plot(por_anio["anio"].astype(str), por_anio["personas"],
-            color=AQUA, linewidth=2, marker="o", markersize=8,
-            markeredgecolor=SUPERFICIE, markeredgewidth=2)
-    for x, v in zip(por_anio["anio"].astype(str), por_anio["personas"]):
-        ax.annotate(f"{v:,}", (x, v), textcoords="offset points", xytext=(0, 12),
-                    ha="center", color=TINTA, fontsize=10, fontweight="bold")
-    _titulo(fig, "Contratistas distintos por año",
-            "Documentos únicos tras normalizar los nombres")
-    ax.set_ylim(0, por_anio["personas"].max() * 1.25)
-    _guardar(fig, destino, "03_contratistas_por_anio.png")
+    fig = g.lineas([("Contratistas", dict(zip(por_anio["anio"].astype(int),
+                                              por_anio["personas"].astype(float))))],
+                   TEMA, "Contratistas distintos por año",
+                   "Documentos únicos tras normalizar los nombres", PIE,
+                   decimales=0, tamano=TAMANO_BASE, etiquetas_puntos=True)
+    _guardar(fig, destino, "03_contratistas_por_anio")
 
     # --- Valor por area y anio (apilado) ---
     areas = datos.pivot_table(index="anio", columns="nombre_area",
                               values="valor_total", aggfunc="sum").fillna(0)
-    fig, ax = plt.subplots(figsize=(9, 5))
-    _estilo(ax)
-    base = 0
-    for i, col in enumerate(areas.columns):
-        ax.bar(areas.index.astype(str), areas[col], bottom=base,
-               color=SERIES[i], width=0.62, label=col,
-               edgecolor=SUPERFICIE, linewidth=2)
-        base = base + areas[col].values
-    ax.yaxis.set_major_formatter(mticker.FuncFormatter(_millones))
-    _titulo(fig, "Valor contratado por área y año",
-            "Apoyo administrativo frente a operativo asistencial")
-    ax.legend(frameon=False, labelcolor=TINTA_2, loc="upper left",
-              bbox_to_anchor=(0, -0.08), ncol=len(areas.columns))
-    _guardar(fig, destino, "04_valor_por_area.png")
+    fig = g.columnas_apiladas(
+        [str(a) for a in areas.index],
+        [(str(col), (areas[col] / 1e6).tolist()) for col in areas.columns],
+        TEMA, "Valor contratado por área y año",
+        "Millones de pesos corrientes · apoyo administrativo frente a operativo asistencial",
+        PIE, decimales=0)
+    _guardar(fig, destino, "04_valor_por_area")
 
     # --- Valor por clase de persona y anio (apilado) ---
     clases = datos.pivot_table(index="anio", columns="clase_persona",
                                values="valor_total", aggfunc="sum").fillna(0)
-    fig, ax = plt.subplots(figsize=(9, 5))
-    _estilo(ax)
-    base = 0
-    for i, col in enumerate(clases.columns):
-        ax.bar(clases.index.astype(str), clases[col], bottom=base,
-               color=SERIES[i + 2], width=0.62, label=str(col),
-               edgecolor=SUPERFICIE, linewidth=2)
-        base = base + clases[col].values
-    ax.yaxis.set_major_formatter(mticker.FuncFormatter(_millones))
-    _titulo(fig, "Valor contratado por clase de persona",
-            "Contratación directa con personas naturales frente a jurídicas")
-    ax.legend(frameon=False, labelcolor=TINTA_2, loc="upper left",
-              bbox_to_anchor=(0, -0.08), ncol=len(clases.columns))
-    _guardar(fig, destino, "05_valor_por_clase_persona.png")
+    fig = g.columnas_apiladas(
+        [str(a) for a in clases.index],
+        [(str(col), (clases[col] / 1e6).tolist()) for col in clases.columns],
+        TEMA, "Valor contratado por clase de persona",
+        "Millones de pesos corrientes · personas naturales frente a jurídicas",
+        PIE, decimales=0)
+    _guardar(fig, destino, "05_valor_por_clase_persona")
 
     # --- Top perfiles ---
     perfiles = (datos.groupby("perfil")["valor_total"].sum()
-                .sort_values(ascending=True).tail(15))
-    fig, ax = plt.subplots(figsize=(9, 7))
-    _estilo(ax)
-    ax.grid(axis="y", visible=False)
-    ax.grid(axis="x", color="#e8e7e1", linewidth=0.8)
-    ax.barh(perfiles.index, perfiles.values, color=VIOLETA, height=0.66)
-    for y, v in zip(perfiles.index, perfiles.values):
-        ax.text(v, y, "  " + _millones(v), va="center", color=TINTA_2, fontsize=9)
-    ax.xaxis.set_major_formatter(mticker.FuncFormatter(_millones))
-    ax.set_xlim(0, perfiles.max() * 1.18)
-    _titulo(fig, "Perfiles con mayor valor contratado",
-            "Acumulado de todos los años del reporte · top 15")
-    _guardar(fig, destino, "06_top_perfiles.png")
+                .sort_values(ascending=False).head(15))
+    nombres = [str(p) for p in perfiles.index]
+    fig = g.barras_ranking(
+        nombres, perfiles.tolist(), TEMA,
+        "Perfiles con mayor valor contratado",
+        "Millones de pesos · acumulado de todos los años del reporte · top 15", PIE,
+        tamano=(TAMANO_BASE[0], 7.0), orden="desc", margen_izq_max=3.4,
+        etiquetas_valor={n: _millones(v) for n, v in zip(nombres, perfiles)})
+    _formato_millones(fig.axes[0])
+    _guardar(fig, destino, "06_top_perfiles")
 
     # --- Top contratistas ---
     top = (datos.groupby("nombre_normalizado")
            .agg(valor=("valor_total", "sum"), contratos=("consecutivo", "count"))
-           .sort_values("valor", ascending=True).tail(20))
-    fig, ax = plt.subplots(figsize=(9, 8.5))
-    _estilo(ax)
-    ax.grid(axis="y", visible=False)
-    ax.grid(axis="x", color="#e8e7e1", linewidth=0.8)
-    ax.barh(top.index, top["valor"], color=AZUL, height=0.66)
-    for y, (v, n) in zip(top.index, top[["valor", "contratos"]].values):
-        ax.text(v, y, f"  {_millones(v)} · {int(n)} contratos",
-                va="center", color=TINTA_2, fontsize=8.5)
-    ax.xaxis.set_major_formatter(mticker.FuncFormatter(_millones))
-    ax.set_xlim(0, top["valor"].max() * 1.35)
-    _titulo(fig, "Contratistas con mayor valor acumulado",
-            "Agrupado por documento, con el nombre ya normalizado · top 20")
-    _guardar(fig, destino, "07_top_contratistas.png")
+           .sort_values("valor", ascending=False).head(20))
+    nombres = [str(n) for n in top.index]
+    fig = g.barras_ranking(
+        nombres, top["valor"].tolist(), TEMA,
+        "Contratistas con mayor valor acumulado",
+        "Millones de pesos · agrupado por documento, con el nombre ya normalizado · top 20", PIE,
+        tamano=(TAMANO_BASE[0], 8.5), orden="desc", margen_izq_max=3.4,
+        etiquetas_valor={n: f"{_millones(v)} · {int(c)} contratos"
+                         for n, v, c in zip(nombres, top["valor"], top["contratos"])})
+    _formato_millones(fig.axes[0])
+    _guardar(fig, destino, "07_top_contratistas")
 
     # --- Estacionalidad: contratos por mes de inicio ---
     meses = datos.pivot_table(index="mes_inicio", columns="anio",
                               values="consecutivo", aggfunc="count").reindex(range(1, 13))
     etiquetas = ["E", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"]
     # Un panel por anio: seis lineas superpuestas se vuelven ilegibles.
-    n = len(meses.columns)
-    filas = (n + 2) // 3
-    fig, ejes = plt.subplots(filas, 3, figsize=(10, 2.5 * filas + 0.8),
-                             sharey=True, sharex=True)
-    ejes = ejes.ravel()
-    tope = meses.max().max()
-    for i, anio in enumerate(meses.columns):
-        ax = ejes[i]
-        _estilo(ax)
-        valores = meses[anio].fillna(0)
-        ax.fill_between(range(12), valores, color=AZUL, alpha=0.12)
-        ax.plot(range(12), valores, color=AZUL, linewidth=2)
-        pico = int(valores.idxmax()) - 1
-        ax.plot([pico], [valores.iloc[pico]], "o", color=AZUL, markersize=7,
-                markeredgecolor=SUPERFICIE, markeredgewidth=2)
-        ax.annotate(f"{int(valores.iloc[pico])}", (pico, valores.iloc[pico]),
-                    textcoords="offset points", xytext=(0, 8), ha="center",
-                    color=TINTA, fontsize=9, fontweight="bold")
-        ax.set_title(str(anio), color=TINTA, fontsize=11, fontweight="bold",
-                     loc="left", pad=6)
-        ax.set_xticks(range(12))
-        ax.set_xticklabels(etiquetas, fontsize=8)
-        ax.set_ylim(0, tope * 1.22)
-    for ax in ejes[n:]:
-        ax.set_visible(False)
-    _titulo(fig, "Contratos por mes de inicio",
-            "Un panel por año, misma escala · el punto marca el mes de mayor contratación")
-    fig.subplots_adjust(hspace=0.45, wspace=0.12)
-    _guardar(fig, destino, "08_estacionalidad.png")
+    columnas_grid = 3
+    filas = -(-len(meses.columns) // columnas_grid)
+    paneles = [(str(anio), etiquetas, meses[anio].fillna(0).tolist(), 0)
+               for anio in meses.columns]
+    fig = g.panel(paneles, TEMA, "Contratos por mes de inicio",
+                  "Un panel por año, cada uno con su escala", PIE,
+                  filas=filas, columnas_grid=columnas_grid,
+                  tamano=(TAMANO_BASE[0], 2.2 * filas + 1.6))
+    _guardar(fig, destino, "08_estacionalidad")
 
     return por_anio
+
+
+def _formato_millones(ax):
+    """El eje de pesos de los rankings, en millones (la unidad va en el subtitulo)."""
+    from matplotlib.ticker import FuncFormatter
+
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _pos: formato_es(v / 1e6, 0)))
 
 
 # --------------------------------------------------------------------------

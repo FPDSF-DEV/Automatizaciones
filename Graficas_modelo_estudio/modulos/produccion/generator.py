@@ -2,12 +2,17 @@ from __future__ import annotations
 
 import argparse
 import re
-from textwrap import fill
+import sys
 from pathlib import Path
 from typing import Dict, List, Sequence, Tuple
 
-import matplotlib.pyplot as plt
 import pandas as pd
+
+# Las graficas usan el sistema de diseno de terridata (paleta, tipografia, maqueta),
+# el mismo de los modulos terridata y pss.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "terridata"))
+from terridata import graficas as g  # noqa: E402
+from terridata.estilo import CLARO, TAMANO_BASE, formato_es, px  # noqa: E402
 
 
 DEFAULT_KEY_COLUMNS = ["nombre", "concepto"]
@@ -17,6 +22,8 @@ FILE_YEAR_PATTERN = re.compile(r"(\d{4})")
 # <SIHO>/Formularios_Anuales/<anio>/Produccion/Produccion_<anio>.csv
 SIHO_PATTERN = "**/Formularios_Anuales/*/Produccion/*.csv"
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
+TEMA = CLARO
+PIE = "Fuente: SIHO — Formularios anuales de Producción"
 
 
 def extract_year_from_filename(file_path: Path) -> int:
@@ -115,10 +122,6 @@ def clean_title_text(value: object) -> str:
 	return text
 
 
-def format_int_label(value: float) -> str:
-	return f"{int(round(value)):,}".replace(",", ".")
-
-
 def build_chart_basename(row: pd.Series, key_columns: Sequence[str]) -> str:
 	if "concepto" in row.index:
 		base_text = clean_title_text(row["concepto"])
@@ -135,81 +138,53 @@ def build_chart_basename(row: pd.Series, key_columns: Sequence[str]) -> str:
 	return slugify(base_text)
 
 
+def _variacion(values: Sequence[float], idx: int) -> Tuple[str, str]:
+	"""Texto de la variacion frente al anio anterior y el color con que se escribe."""
+	tema = TEMA
+	if idx == 0:
+		return "Base", tema.texto_secundario
+	prev = values[idx - 1]
+	if prev == 0:
+		return "N/A", tema.texto_secundario
+	pct = ((values[idx] - prev) / prev) * 100
+	signo = "+" if pct >= 0 else "−"
+	return f"{signo}{formato_es(abs(pct), 0)} %", tema.color(6) if pct >= 0 else tema.color(8)
+
+
+def _titulo_y_subtitulo(title_text: str, ancho_util: float) -> Tuple[str, str]:
+	"""El concepto va de titulo. Si no cabe en dos lineas se acorta con '…' y el
+	nombre completo pasa al subtitulo: la cabecera nunca recorta en silencio."""
+	subtitulo = "Total anual reportado y promedio del periodo · el porcentaje es la variación frente al año anterior"
+	def cabe(texto: str) -> bool:
+		lineas = g.envolver(texto, ancho_util, TEMA.fuente_titulo, max_lineas=2)
+		return " ".join(lineas) == " ".join(texto.split())
+
+	if cabe(title_text):
+		return title_text, subtitulo
+	# Lo que va entre parentesis es una aclaracion: baja al subtitulo.
+	partes = re.match(r"^(.*?)\s*\((.*)\)\s*$", title_text)
+	if partes and cabe(partes.group(1)):
+		return partes.group(1), f"{partes.group(2)} · {subtitulo[0].lower()}{subtitulo[1:]}"
+	lineas = g.envolver(title_text, ancho_util, TEMA.fuente_titulo, max_lineas=2)
+	ultima = lineas[-1]
+	while " " in ultima and g.ancho_texto(ultima + "…", TEMA.fuente_titulo) > ancho_util:
+		ultima = ultima.rsplit(" ", 1)[0]
+	return " ".join(lineas[:-1] + [ultima + "…"]), title_text
+
+
 def draw_chart_for_row(
 	row: pd.Series,
 	years: Sequence[int],
 	key_columns: Sequence[str],
 	output_file: Path,
 ) -> None:
+	tema = TEMA
 	year_labels = [str(year) for year in years]
 	values = [float(row[label]) for label in year_labels]
 	average_value = sum(values) / len(values) if values else 0.0
 
-	categories = year_labels + ["PROMEDIO"]
+	categories = year_labels + ["Promedio"]
 	chart_values = values + [average_value]
-	colors = ["#3f6fb6"] * len(values) + ["#d7263d"]
-
-	fig, ax = plt.subplots(figsize=(12, 6.5), dpi=130)
-	fig.patch.set_facecolor("#f6f7fb")
-	ax.set_facecolor("#ffffff")
-
-	bars = ax.bar(
-		range(len(categories)),
-		chart_values,
-		color=colors,
-		width=0.6,
-		edgecolor="#2f4f78",
-		linewidth=0.6,
-		zorder=3,
-	)
-
-	max_value = max(chart_values) if chart_values else 1.0
-	value_offset = max_value * 0.02
-	pct_offset = max_value * 0.075
-	upper_limit = max_value * 1.2 if max_value > 0 else 1.0
-	ax.set_ylim(0, upper_limit)
-
-	for bar, value in zip(bars, chart_values):
-		center_x = bar.get_x() + bar.get_width() / 2
-		ax.text(
-			center_x,
-			value / 2 if value > 0 else value + value_offset,
-			format_int_label(value),
-			ha="center",
-			va="center",
-			fontsize=12,
-			color="#1e2b3a",
-			fontweight="bold",
-			bbox={"facecolor": "#eef2ff", "edgecolor": "none", "pad": 2.8},
-			zorder=5,
-		)
-
-	for idx, value in enumerate(values):
-		if idx == 0:
-			pct_text = "BASE"
-			pct_color = "#74839a"
-		else:
-			prev = values[idx - 1]
-			if prev == 0:
-				pct_text = "N/A"
-				pct_color = "#74839a"
-			else:
-				pct = ((value - prev) / prev) * 100
-				pct_text = f"{pct:+.0f}%"
-				pct_color = "#2e9b51" if pct >= 0 else "#c13c37"
-
-		ax.text(
-			idx,
-			value + pct_offset,
-			pct_text,
-			ha="center",
-			va="center",
-			fontsize=12,
-			color="white",
-			fontweight="bold",
-			bbox={"facecolor": pct_color, "edgecolor": "none", "pad": 2.8},
-			zorder=5,
-		)
 
 	concept_column = "concepto" if "concepto" in row.index else None
 	if concept_column:
@@ -221,23 +196,44 @@ def draw_chart_for_row(
 			if "codigo" not in str(column).lower()
 		]
 		title_text = " - ".join(title_parts)
-	title = fill(title_text.upper(), width=52)
-	ax.set_title(title, fontsize=16, fontweight="bold", color="#243447", pad=20)
+	ancho_util = TAMANO_BASE[0] - g.BORDE - g.MARGEN_DER
+	titulo, subtitulo = _titulo_y_subtitulo(title_text, ancho_util)
 
+	ancho_slot = (TAMANO_BASE[0] - g.MARGEN_IZQ - g.MARGEN_DER) / len(categories)
+	etiquetas, rotacion, alto_cat = g._preparar_categorias(categories, ancho_slot, tema.fuente_eje)
+	lienzo = g.crear_lienzo(tema, titulo, subtitulo, PIE, TAMANO_BASE, alto_categorias=alto_cat)
+	ax = lienzo.ax
+	ax.set_xlim(-0.5, len(categories) - 0.5)
+	g._rejilla_horizontal(lienzo)
 	ax.set_xticks(range(len(categories)))
-	ax.set_xticklabels(categories, fontsize=11, color="#49576a", fontweight="bold")
-	ax.tick_params(axis="x", pad=8)
-	ax.tick_params(axis="y", labelsize=9, colors="#74839a")
-	ax.yaxis.grid(True, color="#e7ebf1", linestyle="-", linewidth=1, zorder=0)
-	ax.xaxis.grid(False)
+	ax.set_xticklabels(etiquetas, rotation=rotacion,
+	                   ha="right" if rotacion else "center", rotation_mode="anchor")
 
-	for spine in ["top", "right", "left"]:
-		ax.spines[spine].set_visible(False)
-	ax.spines["bottom"].set_color("#d4dbe5")
+	# Cada barra lleva su cifra y, encima, la variacion: se reserva el aire de las dos.
+	textos = [formato_es(v, 0) for v in chart_values]
+	variaciones = [_variacion(values, i) for i in range(len(values))]
+	giro, espacio = g.plan_etiquetas(tema, textos, lienzo.ancho_ejes / len(categories))
+	espacio_variacion = g.alto_texto(tema.fuente_valor) + px(4)
+	ax.set_ylim(*g._limites_con_espacio(chart_values, lienzo.alto_ejes, espacio + espacio_variacion))
+	g.ajustar_formato_eje(ax, "y")
 
-	plt.tight_layout()
-	fig.savefig(output_file, bbox_inches="tight")
-	plt.close(fig)
+	grosor = g._grosor_barra(lienzo, len(categories))
+	holgura_y = lienzo.a_datos_y(px(6))
+	for i, valor in enumerate(chart_values):
+		# El promedio no es un anio mas: va en el slot 2 para distinguirlo.
+		color = tema.color(2) if i == len(values) else tema.color(1)
+		g.dibujar_barra(lienzo, i - grosor / 2, 0.0, i + grosor / 2, valor, color, "arriba")
+		g._etiqueta_valor(lienzo, i, valor + holgura_y, textos[i], va="bottom", rotacion=giro)
+		if i < len(values):
+			texto, color_var = variaciones[i]
+			alto_cifra = g.ancho_texto(textos[i], tema.fuente_valor) if giro else g.alto_texto(tema.fuente_valor)
+			ax.text(i, valor + holgura_y + lienzo.a_datos_y(alto_cifra + px(2)), texto,
+			        va="bottom", ha="center", fontsize=tema.fuente_valor,
+			        fontweight="semibold", color=color_var, zorder=4, clip_on=False)
+
+	fig = lienzo.fig
+	g.guardar(fig, output_file.with_suffix(""), formatos=(output_file.suffix.lstrip("."),))
+	g.cerrar(fig)
 
 
 def parse_args() -> argparse.Namespace:

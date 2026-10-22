@@ -748,12 +748,15 @@ def barras_ranking(
     tamano: tuple[float, float] = TAMANO_BASE,
     orden: str = "asc",
     etiquetas_valor: dict[str, str] | None = None,
+    margen_izq_max: float = MARGEN_IZQ_RANKING,
 ) -> plt.Figure:
     """Ranking horizontal, leído de arriba hacia abajo.
 
     `orden`: 'asc' pone el menor arriba, 'desc' el mayor arriba y 'dado' respeta
     el orden recibido (para dos o tres categorías fijas, donde ordenar confunde).
     Un solo color sólido: el orden ya comunica la magnitud, así que no va rampa (§7.2).
+    `margen_izq_max` amplía el tope del margen cuando los nombres son largos
+    (personas o perfiles en vez de municipios).
     """
     pares = [(c, v) for c, v in zip(categorias, valores) if v is not None]
     if orden == "asc":
@@ -766,7 +769,7 @@ def barras_ranking(
 
     margen_izq = max(
         MARGEN_IZQ,
-        min(MARGEN_IZQ_RANKING,
+        min(margen_izq_max,
             max((ancho_texto(n, tema.fuente_eje) for n in nombres), default=0.6) + 0.28),
     )
     lienzo = crear_lienzo(tema, titulo, subtitulo, pie, tamano,
@@ -940,8 +943,15 @@ def lineas(
     decimales: int | None = None,
     tamano: tuple[float, float] = TAMANO_LINEAS,
     max_anios: int = 10,
+    etiquetas_puntos: bool = False,
 ) -> plt.Figure:
-    """Evolución en el tiempo. El eje X se ancla al último año con dato, no al corte."""
+    """Evolución en el tiempo. El eje X se ancla al último año con dato, no al corte.
+
+    `etiquetas_puntos=True` escribe la cifra de cada punto: encima la del punto
+    más alto de cada año y debajo las demás, para que series cercanas no se
+    pisen. Con cifras no va etiqueta directa al final: chocaría con la última
+    cifra, y la leyenda ya nombra las series.
+    """
     anios_todos = sorted({a for _, s in series for a in s})
     if not anios_todos:
         anios_todos = [0]
@@ -953,7 +963,7 @@ def lineas(
 
     # Con etiqueta directa hay que reservarle el ancho: si no cabe, se recorta,
     # y recortar está prohibido.
-    con_etiqueta_directa = len(series) <= 4
+    con_etiqueta_directa = len(series) <= 4 and not etiquetas_puntos
     margen_der = MARGEN_DER
     if con_etiqueta_directa:
         mas_ancha = max((ancho_texto(n, tema.fuente_eje) for n, _ in series), default=0.0)
@@ -997,6 +1007,18 @@ def lineas(
         handles.append(linea)
         etiquetas.append(nombre)
         finales.append((ys[-1], xs[-1], nombre))
+        if etiquetas_puntos:
+            holgura = lienzo.a_datos_y(px(10))
+            for x, y in zip(xs, ys):
+                arriba = y >= max(otra[x] for _, otra in series if x in otra)
+                ax.text(
+                    x, y + holgura if arriba else y - holgura, formato_es(y, dec),
+                    va="bottom" if arriba else "top", ha="center",
+                    fontsize=tema.fuente_valor,
+                    # Con varias series la cifra toma el color de su línea.
+                    color=tema.texto_primario if len(series) == 1 else color,
+                    zorder=4, clip_on=False,
+                )
 
     # Etiqueta directa al final de la línea (hasta 4 series, §7.5), separando las
     # que caerían una encima de otra.
