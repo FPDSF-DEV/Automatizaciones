@@ -1,0 +1,5 @@
+Código Departamento|Departamento|Código Entidad|Entidad|Dimensión|Subcategoría|Indicador|Dato Numérico|Dato Cualitativo|Año|Mes|Fuente|Unidad de Medida
+41|Huila|41306|Gigante|Censo 2005 y proyecciones DANE|Población|Población total|35.498,00||2019|12|DANE|Personas
+41|Huila|41306|Gigante|Censo 2005 y proyecciones DANE|Población|Población urbana|17.993,00||2019
+41|Huila|41306|Gigante|Salud|Aseguramiento|Afiliados régimen subsidiado|25.110,00||2021|12|MinSalud - BDUA|Personas
+esto no es una linea valida

@@ -1,0 +1,107 @@
+Código Departamento|Departamento|Código Entidad|Entidad|Dimensión|Subcategoría|Indicador|Dato Numérico|Dato Cualitativo|Año|Mes|Fuente|Unidad de Medida
+41|Huila|41306|Gigante|Descripción general|Descripción general|Código DANE||41306|2000|12|DANE|Texto
+41|Huila|41306|Gigante|Descripción general|Descripción general|Región||Central|2000|12|DNP|Texto
+41|Huila|41306|Gigante|Descripción general|Descripción general|Categoría de ruralidad||Intermedio|2000|12|DNP|Texto
+41|Huila|41306|Gigante|Descripción general|Descripción general|Categoría ley 617 de 2000||6|2000|12|Contraloría General de la República|Texto
+41|Huila|41306|Gigante|Descripción general|Descripción general|Extensión|719,00||2000|12|IGAC|Km2
+41|Huila|41306|Gigante|Censo 2005 y proyecciones DANE|Población|Densidad poblacional|49,37||2019|12|DANE|Habitantes por Km2
+41|Huila|41306|Gigante|Censo 2005 y proyecciones DANE|Población|Población total|35.498,00||2019|12|DANE|Personas
+41|Huila|41306|Gigante|Censo 2005 y proyecciones DANE|Población|Población urbana|17.993,00||2019|12|DANE|Personas
+41|Huila|41306|Gigante|Censo 2005 y proyecciones DANE|Población|Población rural|17.505,00||2019|12|DANE|Personas
+41|Huila|41306|Gigante|Censo 2005 y proyecciones DANE|Población|Población total de hombres|19.369,00||2019|12|DANE|Personas
+41|Huila|41306|Gigante|Censo 2005 y proyecciones DANE|Población|Población total de mujeres|16.129,00||2019|12|DANE|Personas
+41|Huila|41306|Gigante|Censo 2005 y proyecciones DANE|Población|Porcentaje población de hombres|54,56||2019|12|DANE|Porcentaje
+41|Huila|41306|Gigante|Censo 2005 y proyecciones DANE|Población|Porcentaje población de mujeres|45,44||2019|12|DANE|Porcentaje
+41|Huila|41306|Gigante|Demografía y población|Proyecciones de población|Población total|24.209,00||2018|12|DANE|Personas
+41|Huila|41306|Gigante|Demografía y población|Proyecciones de población|Población total|24.490,00||2021|12|DANE|Personas
+41|Huila|41306|Gigante|Demografía y población|Proyecciones de población|Población total|26.900,00||2042|12|DANE|Personas
+41|Huila|41306|Gigante|Demografía y población|SISBEN|Puntaje SISBEN: Promedio - Total|33,71||2021|12|DNP - SISBEN|Puntos
+41|Huila|41306|Gigante|Demografía y población|SISBEN|Total registros válidos - Personas|28.640,00||2021|12|DNP - SISBEN|Personas
+41|Huila|41306|Gigante|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de acueducto (Censo)|86,90||2018|12|DANE - CNPV|Porcentaje
+41|Huila|41306|Gigante|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de acueducto (REC)|78,45||2021|12|SSPD|Porcentaje
+41|Huila|41306|Gigante|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de acueducto urbana (REC)|97,20||2021|12|SSPD|Porcentaje
+41|Huila|41306|Gigante|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de acueducto rural (REC)|59,10||2021|12|SSPD|Porcentaje
+41|Huila|41306|Gigante|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de alcantarillado (Censo)|71,30||2018|12|DANE - CNPV|Porcentaje
+41|Huila|41306|Gigante|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de alcantarillado (REC)|64,80||2021|12|SSPD|Porcentaje
+41|Huila|41306|Gigante|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de alcantarillado urbana (REC)|95,40||2021|12|SSPD|Porcentaje
+41|Huila|41306|Gigante|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de alcantarillado rural (REC)|31,20||2021|12|SSPD|Porcentaje
+41|Huila|41306|Gigante|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de aseo (REC)|69,90||2021|12|SSPD|Porcentaje
+41|Huila|41306|Gigante|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de aseo urbana (REC)|99,10||2021|12|SSPD|Porcentaje
+41|Huila|41306|Gigante|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de aseo rural (REC)|38,60||2021|12|SSPD|Porcentaje
+41|Huila|41306|Gigante|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de energía eléctrica rural|94,20||2020|12|UPME|Porcentaje
+41|Huila|41306|Gigante|Vivienda y acceso a servicios públicos|Conectividad|Penetración de acceso fijo a Internet|8,40||2021|12|MinTIC|Porcentaje
+41|Huila|41306|Gigante|Vivienda y acceso a servicios públicos|Déficit|Déficit cuantitativo de vivienda (Censo)|12,08||2018|12|DANE - CNPV|Porcentaje
+41|Huila|41306|Gigante|Vivienda y acceso a servicios públicos|Déficit|Déficit cualitativo de vivienda (Censo)|46,17||2018|12|DANE - CNPV|Porcentaje
+41|Huila|41306|Gigante|Vivienda y acceso a servicios públicos|Déficit de vivienda|Déficit cualitativo de vivienda (Censo)|46,17||2018|12|DANE - CNPV|Porcentaje
+41|Huila|41306|Gigante|Salud|Aseguramiento|Afiliados régimen subsidiado|25.110,00||2021|12|MinSalud - BDUA|Personas
+41|Huila|41306|Gigante|Salud|Aseguramiento|Afiliados régimen contributivo|5.288,00||2021|12|MinSalud - BDUA|Personas
+41|Huila|41306|Gigante|Salud|Aseguramiento|Afiliados régimen de excepción y especiales|402,00||2021|12|MinSalud - BDUA|Personas
+41|Huila|41306|Gigante|Salud|Aseguramiento|Población pobre no atendida - PPNA|1.240,00||2021|12|MinSalud|Personas
+41|Huila|41306|Gigante|Salud|Vacunación|Cobertura vacunación pentavalente en menores de 1 año|92,30||2021|12|MinSalud - PAI|Porcentaje
+41|Huila|41306|Gigante|Salud|Mortalidad|Razón de mortalidad materna a 42 días|0,00||2020|12|DANE - EEVV|Razón
+41|Huila|41306|Gigante|Salud|Mortalidad|Tasa de mortalidad infantil en menores de 1 año (x cada 1.000 nacidos vivos)|11,40||2020|12|DANE - EEVV|Tasa
+41|Huila|41306|Gigante|Salud|Mortalidad|Tasa de mortalidad (x cada 1.000 habitantes)|5,20||2020|12|DANE - EEVV|Tasa
+41|Huila|41306|Gigante|Salud|Fecundidad|Tasa de fecundidad (x cada 1.000 mujeres en edad fértil)|52,80||2020|12|DANE - EEVV|Tasa
+41|Huila|41306|Gigante|Convivencia y seguridad ciudadana|Violencia|Tasa de violencia intrafamiliar por cada 100.000 habitantes|118,60||2021|12|Policía Nacional|Tasa
+41|Huila|41306|Gigante|Pobreza|Pobreza multidimensional|indice de pobreza multidimensional - IPM (Censo)|38,90||2018|12|DANE - CNPV|Porcentaje
+41|Huila|41306|Gigante|Finanzas públicas|Inversión|Porcentaje de inversión - Agua potable y saneamiento básico (sin incluir proyectos de vis)|9,80||2013|12|DNP - FUT|Porcentaje
+41|Huila|41306|Gigante|Finanzas públicas|Inversión|Porcentaje de inversión - Agua potable y saneamiento básico (sin incluir proyectos de vis)|11,20||2014|12|DNP - FUT|Porcentaje
+41|Huila|41306|Gigante|Finanzas públicas|Inversión|Porcentaje de inversión - Agua potable y saneamiento básico (sin incluir proyectos de vis)|7,60||2015|12|DNP - FUT|Porcentaje
+41|Huila|41306|Gigante|Finanzas públicas|Inversión|Porcentaje de inversión - Agua potable y saneamiento básico (sin incluir proyectos de vis)|10,40||2016|12|DNP - FUT|Porcentaje
+41|Huila|41306|Gigante|Finanzas públicas|Inversión|Porcentaje de inversión - Agua potable y saneamiento básico (sin incluir proyectos de vis)|12,90||2017|12|DNP - FUT|Porcentaje
+41|Huila|41306|Gigante|Economía|Principales cultivos transitorios según producción|Primer cultivo transitorio en términos de toneladas producidas|3.606,00|Maíz|2016|12|Evaluación Agropecuaria Municipal, MinAgricultura|Número
+41|Huila|41306|Gigante|Economía|Principales cultivos transitorios según producción|Segundo cultivo transitorio en términos de toneladas producidas|1.230,00|Fríjol|2016|12|Evaluación Agropecuaria Municipal, MinAgricultura|Número
+41|Huila|41306|Gigante|Economía|Principales cultivos permanentes según producción|Primer cultivo permanente en términos de toneladas producidas|12.450,00|Café|2016|12|Evaluación Agropecuaria Municipal, MinAgricultura|Número
+41|Huila|41306|Gigante|Economía|Principales cultivos permanentes según producción|Segundo cultivo permanente en términos de toneladas producidas|3.210,00|Cacao|2016|12|Evaluación Agropecuaria Municipal, MinAgricultura|Número
+41|Huila|41298|Garzón|Descripción general|Descripción general|Código DANE||41298|2000|12|DANE|Texto
+41|Huila|41298|Garzón|Descripción general|Descripción general|Región||Central|2000|12|DNP|Texto
+41|Huila|41298|Garzón|Descripción general|Descripción general|Categoría de ruralidad||Intermedio|2000|12|DNP|Texto
+41|Huila|41298|Garzón|Descripción general|Descripción general|Categoría ley 617 de 2000||5|2000|12|Contraloría General de la República|Texto
+41|Huila|41298|Garzón|Descripción general|Descripción general|Extensión|580,00||2000|12|IGAC|Km2
+41|Huila|41298|Garzón|Censo 2005 y proyecciones DANE|Población|Densidad poblacional|169,91||2019|12|DANE|Habitantes por Km2
+41|Huila|41298|Garzón|Censo 2005 y proyecciones DANE|Población|Población total|98.550,00||2019|12|DANE|Personas
+41|Huila|41298|Garzón|Censo 2005 y proyecciones DANE|Población|Población urbana|63.100,00||2019|12|DANE|Personas
+41|Huila|41298|Garzón|Censo 2005 y proyecciones DANE|Población|Población rural|35.450,00||2019|12|DANE|Personas
+41|Huila|41298|Garzón|Censo 2005 y proyecciones DANE|Población|Población total de hombres|48.300,00||2019|12|DANE|Personas
+41|Huila|41298|Garzón|Censo 2005 y proyecciones DANE|Población|Población total de mujeres|50.250,00||2019|12|DANE|Personas
+41|Huila|41298|Garzón|Censo 2005 y proyecciones DANE|Población|Porcentaje población de hombres|49,01||2019|12|DANE|Porcentaje
+41|Huila|41298|Garzón|Censo 2005 y proyecciones DANE|Población|Porcentaje población de mujeres|50,99||2019|12|DANE|Porcentaje
+41|Huila|41298|Garzón|Demografía y población|Proyecciones de población|Población total|91.400,00||2018|12|DANE|Personas
+41|Huila|41298|Garzón|Demografía y población|Proyecciones de población|Población total|94.120,00||2021|12|DANE|Personas
+41|Huila|41298|Garzón|Demografía y población|Proyecciones de población|Población total|108.300,00||2042|12|DANE|Personas
+41|Huila|41298|Garzón|Demografía y población|SISBEN|Puntaje SISBEN: Promedio - Total|38,42||2021|12|DNP - SISBEN|Puntos
+41|Huila|41298|Garzón|Demografía y población|SISBEN|Total registros válidos - Personas|71.380,00||2021|12|DNP - SISBEN|Personas
+41|Huila|41298|Garzón|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de acueducto (Censo)|93,40||2018|12|DANE - CNPV|Porcentaje
+41|Huila|41298|Garzón|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de acueducto (REC)|88,10||2021|12|SSPD|Porcentaje
+41|Huila|41298|Garzón|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de acueducto urbana (REC)|99,50||2021|12|SSPD|Porcentaje
+41|Huila|41298|Garzón|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de acueducto rural (REC)|62,70||2021|12|SSPD|Porcentaje
+41|Huila|41298|Garzón|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de alcantarillado (Censo)|84,60||2018|12|DANE - CNPV|Porcentaje
+41|Huila|41298|Garzón|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de alcantarillado (REC)|79,30||2021|12|SSPD|Porcentaje
+41|Huila|41298|Garzón|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de alcantarillado urbana (REC)|98,80||2021|12|SSPD|Porcentaje
+41|Huila|41298|Garzón|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de alcantarillado rural (REC)|44,50||2021|12|SSPD|Porcentaje
+41|Huila|41298|Garzón|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de aseo (REC)|82,40||2021|12|SSPD|Porcentaje
+41|Huila|41298|Garzón|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de aseo urbana (REC)|99,80||2021|12|SSPD|Porcentaje
+41|Huila|41298|Garzón|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de aseo rural (REC)|51,30||2021|12|SSPD|Porcentaje
+41|Huila|41298|Garzón|Vivienda y acceso a servicios públicos|Cobertura|Cobertura de energía eléctrica rural|97,60||2020|12|UPME|Porcentaje
+41|Huila|41298|Garzón|Vivienda y acceso a servicios públicos|Conectividad|Penetración de acceso fijo a Internet|14,70||2021|12|MinTIC|Porcentaje
+41|Huila|41298|Garzón|Vivienda y acceso a servicios públicos|Déficit|Déficit cuantitativo de vivienda (Censo)|8,32||2018|12|DANE - CNPV|Porcentaje
+41|Huila|41298|Garzón|Vivienda y acceso a servicios públicos|Déficit|Déficit cualitativo de vivienda (Censo)|29,64||2018|12|DANE - CNPV|Porcentaje
+41|Huila|41298|Garzón|Salud|Aseguramiento|Afiliados régimen subsidiado|58.920,00||2021|12|MinSalud - BDUA|Personas
+41|Huila|41298|Garzón|Salud|Aseguramiento|Afiliados régimen contributivo|28.450,00||2021|12|MinSalud - BDUA|Personas
+41|Huila|41298|Garzón|Salud|Aseguramiento|Afiliados régimen de excepción y especiales|1.980,00||2021|12|MinSalud - BDUA|Personas
+41|Huila|41298|Garzón|Salud|Aseguramiento|Población pobre no atendida - PPNA|3.410,00||2021|12|MinSalud|Personas
+41|Huila|41298|Garzón|Salud|Mortalidad|Razón de mortalidad materna a 42 días|58,30||2020|12|DANE - EEVV|Razón
+41|Huila|41298|Garzón|Salud|Mortalidad|Tasa de mortalidad infantil en menores de 1 año (x cada 1.000 nacidos vivos)|9,80||2020|12|DANE - EEVV|Tasa
+41|Huila|41298|Garzón|Salud|Mortalidad|Tasa de mortalidad (x cada 1.000 habitantes)|6,10||2020|12|DANE - EEVV|Tasa
+41|Huila|41298|Garzón|Salud|Fecundidad|Tasa de fecundidad (x cada 1.000 mujeres en edad fértil)|47,30||2020|12|DANE - EEVV|Tasa
+41|Huila|41298|Garzón|Convivencia y seguridad ciudadana|Violencia|Tasa de violencia intrafamiliar por cada 100.000 habitantes|204,10||2021|12|Policía Nacional|Tasa
+41|Huila|41298|Garzón|Pobreza|Pobreza multidimensional|indice de pobreza multidimensional - IPM (Censo)|24,50||2018|12|DANE - CNPV|Porcentaje
+41|Huila|41298|Garzón|Finanzas públicas|Inversión|Porcentaje de inversión - Agua potable y saneamiento básico (sin incluir proyectos de vis)|6,40||2013|12|DNP - FUT|Porcentaje
+41|Huila|41298|Garzón|Finanzas públicas|Inversión|Porcentaje de inversión - Agua potable y saneamiento básico (sin incluir proyectos de vis)|8,10||2014|12|DNP - FUT|Porcentaje
+41|Huila|41298|Garzón|Finanzas públicas|Inversión|Porcentaje de inversión - Agua potable y saneamiento básico (sin incluir proyectos de vis)|9,30||2015|12|DNP - FUT|Porcentaje
+41|Huila|41298|Garzón|Finanzas públicas|Inversión|Porcentaje de inversión - Agua potable y saneamiento básico (sin incluir proyectos de vis)|5,70||2016|12|DNP - FUT|Porcentaje
+41|Huila|41298|Garzón|Finanzas públicas|Inversión|Porcentaje de inversión - Agua potable y saneamiento básico (sin incluir proyectos de vis)|7,20||2017|12|DNP - FUT|Porcentaje
+41|Huila|41298|Garzón|Economía|Principales cultivos transitorios según producción|Primer cultivo transitorio en términos de toneladas producidas|5.420,00|Arroz|2016|12|Evaluación Agropecuaria Municipal, MinAgricultura|Número
+41|Huila|41298|Garzón|Economía|Principales cultivos transitorios según producción|Segundo cultivo transitorio en términos de toneladas producidas|2.180,00|Maíz|2016|12|Evaluación Agropecuaria Municipal, MinAgricultura|Número
+41|Huila|41298|Garzón|Economía|Principales cultivos permanentes según producción|Primer cultivo permanente en términos de toneladas producidas|18.900,00|Café|2016|12|Evaluación Agropecuaria Municipal, MinAgricultura|Número
+41|Huila|41298|Garzón|Economía|Principales cultivos permanentes según producción|Segundo cultivo permanente en términos de toneladas producidas|4.760,00|Plátano|2016|12|Evaluación Agropecuaria Municipal, MinAgricultura|Número

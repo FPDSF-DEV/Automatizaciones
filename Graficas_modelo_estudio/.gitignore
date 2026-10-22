@@ -1,0 +1,34 @@
+# --- Datos de entrada: nunca se suben ---------------------------------------
+# Solo se conserva la estructura de carpetas y su README.
+DATA/**
+!DATA/
+!DATA/README.md
+!DATA/*/
+!DATA/*/.gitkeep
+
+# --- Resultados: se regeneran con `python ejecutar.py` ----------------------
+SALIDAS/
+_respaldo/
+
+# --- Imágenes, hojas de cálculo y comprimidos en cualquier carpeta ---------
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.webp
+*.bmp
+*.xlsx
+*.xls
+*.zip
+~$*
+
+# Los fixtures de las pruebas sí se versionan.
+!modulos/*/tests/fixtures/**
+
+# --- Python ------------------------------------------------------------------
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/

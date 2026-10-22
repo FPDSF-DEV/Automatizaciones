@@ -1,0 +1,6 @@
+# Dependencias de todos los módulos (ver modulos/).
+pandas>=2.0
+matplotlib>=3.7
+openpyxl>=3.1      # Excel de afiliación y tabla de producción
+streamlit>=1.40    # app web de contratación OPS (python ejecutar.py app)
+pytest>=8          # pruebas de productividad y terridata

@@ -1,0 +1,26 @@
+{
+  "propositos_intro": "Para el desarrollo de su Misión Institucional y Cultura Corporativa, la ESE tendrá los siguientes Propósitos:",
+  "propositos": [
+    "Compromiso en la gestión de su rol misional, mediante un modelo de Prestación de Servicios de salud Viable",
+    "Garantizar las Acciones de Gestión Integrada de Procesos por Funciones y Sistemas Integrados",
+    "Mantener la Trazabilidad de Acciones Territoriales de los Modelos Preventivo, predictivo y resolutivo y el Modelo de Atención de los aseguradores para una visión compartida de Salud territorial.",
+    "Garantía de excelentes servicios de atención y prevención en salud comunitaria y familiar",
+    "Mejoramiento de un sistema de desarrollo organizacional de garantía de la Calidad en salud.",
+    "Mejoramiento de condiciones laborales, en cuanto a su economía y compensación y transición de la formalización laboral.",
+    "Mejoramiento de la salud y estilos de vida de la población, con garantías del Goce efectivo de la Salud en la capacidad de respuesta de la atención en salud",
+    "Garantizar las Nuevas Herramientas Innovadoras y digitales del sistema de salud hospitalario y sus tecnologías de la información y la comunicación en salud actualizadas para el mejoramiento del hospital.",
+    "Trabajar con sentido social, valores y trabajo en equipo que asegure un hospital clínicamente seguro y autosostenible económicamente",
+    "Generar Clima organizacional gratificante de confianza, que permita Trabajar con transparencia, ética y eficiencia.",
+    "Generar los cambios necesarios para las Operaciones de Productividad/costo de su gestión integrada e integral de servicios de salud",
+    "Generar Procesos viables de Construcción de Pacientes Inteligentes Humanizado"
+  ],
+  "valores_intro": "Para el desarrollo de su misión institucional la ESE impulsará para todas sus actividades los siguientes Valores Institucionales:",
+  "valores": [
+    {"nombre": "Compromiso", "definicion": "Lo damos todo para lograr nuestros objetivos."},
+    {"nombre": "Cumplimiento", "definicion": "Nos permite llegar lejos como personas, organización y conseguir lo que anhelamos. Adquirimos compromisos, sinceros para concluirlos, es tomar responsabilidades y actuar en consecuencia a ellas."},
+    {"nombre": "Disciplina", "definicion": "Tenemos la capacidad para poner en práctica una serie de principios relativos al orden y la constancia, tanto para la ejecución de tareas y actividades cotidianas."},
+    {"nombre": "Equidad", "definicion": "Tratamos a todos por igual, independiente de su clase social, raza, sexo o religión."},
+    {"nombre": "Respeto", "definicion": "Reconocemos y toleramos las creencias, actuaciones, sentimientos y motivos de las personas."},
+    {"nombre": "Responsabilidad", "definicion": "Asumir las consecuencias de nuestros actos y cumplir con nuestros compromisos y obligaciones ante los demás."}
+  ]
+}
