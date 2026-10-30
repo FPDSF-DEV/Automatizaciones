@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Diploma</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f8fafc; color:#1e293b; }
+    .container { max-width:600px; margin:0 auto; padding:24px; background:#ffffff; border-radius:8px; }
+    h1 { font-size:20px; color:#2563eb; }
+    p { line-height:1.5; }
+    .button { background:#2563eb; color:#ffffff; text-decoration:none; padding:12px 20px; border-radius:6px; display:inline-block; }
+    .small { font-size:12px; color:#64748b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Felicitaciones {{NOMBRE}}</h1>
+    <p>Adjuntamos tu diploma correspondiente al programa realizado {{FECHA_RANGO}} con una intensidad de 120 horas.</p>
+    <p>El archivo PDF está protegido con tu número de cédula: <strong>{{CC}}</strong>.</p>
+    <p>Si tienes algún inconveniente para abrirlo, responde a este correo.</p>
+    <p class="small">Este mensaje se generó automáticamente.</p>
+  </div>
+</body>
+</html>
