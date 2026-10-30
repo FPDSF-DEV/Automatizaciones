@@ -1,0 +1,17 @@
+[
+  {
+    "name": "cuenta-ejemplo",
+    "server": "smtp.gmail.com",
+    "port": 587,
+    "user": "tu-correo@tudominio.com",
+    "password": "PON-AQUI-TU-CONTRASENA-DE-APLICACION",
+    "use_tls": true,
+    "use_ssl": false,
+    "email_from": "Mi Organización <tu-correo@tudominio.com>",
+    "daily_limit": 500,
+    "enabled": true,
+    "require_auth": true,
+    "local_hostname": "",
+    "reply_to": ""
+  }
+]

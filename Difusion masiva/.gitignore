@@ -1,0 +1,26 @@
+# Entorno y archivos generados
+venv/
+__pycache__/
+*.egg-info/
+
+# Credenciales: nunca subirlas
+smtp_accounts.json
+smtp_usage.json
+.env
+
+# Datos personales y resultados de campañas
+data/
+campanas/
+*.csv
+*.xlsx
+*.xls
+*.xlsm
+*.json
+*.docx
+*.doc
+*.pdf
+*.zip
+
+# Únicas excepciones: ejemplos con datos inventados
+!ejemplos/*.csv
+!ejemplos/*.json
